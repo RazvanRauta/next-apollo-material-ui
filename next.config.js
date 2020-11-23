@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withTM = require('next-transpile-modules')
+
+module.exports = withTM(['@material-ui/core', '@material-ui/icons'])({
     webpack(config, options) {
         config.module.rules.push({
             test: /\.graphql$/,
@@ -17,4 +20,5 @@ module.exports = {
 
         return config
     },
-}
+    transpileModules: ['@material-ui/core', '@material-ui/icons'],
+})

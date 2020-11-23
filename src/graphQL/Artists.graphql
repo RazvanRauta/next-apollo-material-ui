@@ -1,26 +1,10 @@
-query Artists($query: String!, $limit: Int!, $offset: Int!, $sort: String!) {
+query Artists($query: String, $limit: Int, $offset: Int!, $sort: String) {
     artists(query: $query, limit: $limit, offset: $offset, sort: $sort) {
         id
         name
         nationality
         bio
-        birth
-        death
         longBio
-        qualifier
-        artworksCount
-        lotsCount
-        modelVersion
-        supportedModelVersions
-        mediumTypes
-        filterExtrema {
-            id
-            maxPriceSold
-            maxDateSold
-            minDateSold
-            minPriceSold
-            minEstimatedPrice
-        }
         photo {
             id
             originalUrl

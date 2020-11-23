@@ -11,35 +11,37 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
 
+import Layout from '@/layout'
 import { useApollo } from '@/lib/apollo'
 import theme from '@/theme'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-    const apolloClient = useApollo(pageProps.initialApolloState)
+  const apolloClient = useApollo(pageProps.initialApolloState)
 
-    React.useEffect(() => {
-        const jssStyles = document.querySelector('#jss-server-side')
-        if (jssStyles) {
-            jssStyles.parentElement?.removeChild(jssStyles)
-        }
-    }, [])
+  React.useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side')
+    if (jssStyles) {
+      jssStyles.parentElement?.removeChild(jssStyles)
+    }
+  }, [])
 
-    return (
-        <ApolloProvider client={apolloClient}>
-            <Head>
-                <title>My page</title>
-                <meta
-                    name="viewport"
-                    content="minimum-scale=1, initial-scale=1, width=device-width"
-                />
-            </Head>
-            <ThemeProvider theme={theme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline />
-                <Component {...pageProps} />
-            </ThemeProvider>
-        </ApolloProvider>
-    )
+  return (
+    <ApolloProvider client={apolloClient}>
+      <Head>
+        <title>Home</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </ApolloProvider>
+  )
 }
 
 export default App
