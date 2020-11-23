@@ -1,0 +1,42 @@
+query Artworks($artistId: Int!, $limit: Int!, $offset: Int!) {
+    artworks(artistId: $artistId, limit: $limit, offset: $offset) {
+        id
+        lastPrice
+        yearLastSold
+        dateLastSold
+        placeLastSold
+        currentEstimatedPrice
+        priceMomentum24mo
+        lastCalculatedPriceCreatedAt
+        lastComparablesCreatedAt
+        lastSoldAuctionHouseName
+        artistId
+        editionSize
+        editionCurrent
+        name
+        creationYear
+        conditionIn
+        sizeNotes
+        lotImageS3Key
+        lotImageHeight
+        literature
+        lotImageWidth
+        lotImagePresignedUrl
+        lotImageLoadError
+        exhibited
+        measurementsHeight
+        markings
+        imageLoadingStatus
+        measurementsUnit
+        mediumFinal
+        provenance
+        measurementsDepth
+        materials
+        measurementsWidth
+        lotImageSize
+        description
+        xgboostPricePrediction
+        similarity
+        lotIds
+    }
+}

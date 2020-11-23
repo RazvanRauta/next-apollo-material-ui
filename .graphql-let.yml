@@ -1,8 +1,15 @@
-schema: '**/*.graphqls'
-schemaEntrypoint: 'lib/type-defs.graphqls'
-documents: '**/*.graphql'
+overwrite: true
+schema: "http://localhost:4000/"
+documents: "src/**/*.graphql"
 plugins:
   - typescript
   - typescript-operations
   - typescript-react-apollo
+  - add: 
+         content: '/* eslint-disable */'
+config:
+  reactApolloVersion: 3
+hooks:
+  afterAllFileWrite:
+    - prettier --write
 cacheDir: __generated__
