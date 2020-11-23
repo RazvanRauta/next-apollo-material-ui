@@ -1,6 +1,6 @@
-query Artworks($query: String!, $artistId: Int!) {
-    compoundAnnualReturns(query: $query, artistId: $artistId) {
-        car
-        date
-    }
+query CompoundAnnual($query: String, $artistId: Int) {
+  compoundAnnualReturns(query: $query, artistId: $artistId) {
+    car
+    date
+  }
 }

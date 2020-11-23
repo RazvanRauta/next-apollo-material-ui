@@ -22,6 +22,7 @@ import React, { useState } from 'react'
 import { useArtistQuery } from '@/graphQL/Artist.graphql'
 import Artist from '@/models/Artist'
 
+import Analytics from '../Analytics'
 import ArtworksGrid from '../ArtworksGrid'
 import TabPanel from '../TabPanel'
 import useStyles from './styles'
@@ -143,7 +144,7 @@ const ArtistComponent: React.FC = () => {
             />
           </TabPanel>
           <TabPanel value={tabValue} index="analytics">
-            Analytics
+            <Analytics artistId={artistData?.id} />
           </TabPanel>
         </Box>
       </Box>
