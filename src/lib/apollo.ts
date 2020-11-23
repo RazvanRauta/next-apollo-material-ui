@@ -18,7 +18,7 @@ export type ResolverContext = {
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    uri: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/graphql`,
+    uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`,
     cache: new InMemoryCache({
       typePolicies: {
         Query: {

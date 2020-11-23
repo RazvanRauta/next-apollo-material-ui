@@ -4,7 +4,7 @@
  *  Time: 16:30
  */
 
-import { Box, Typography } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import React from 'react'
 
 interface TabPanelProps {
@@ -26,11 +26,7 @@ const TabPanel: React.FC<TabPanelProps> = ({
       id={`wrapped-tabpanel-${index}`}
       aria-labelledby={`wrapped-tab-${index}`}
       {...other}>
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   )
 }

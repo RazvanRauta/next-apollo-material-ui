@@ -1,31 +1,31 @@
 query Artist($artistId: Int!) {
-    artist(artistId: $artistId) {
-        id
-        name
-        nationality
-        bio
-        birth
-        death
-        longBio
-        qualifier
-        artworksCount
-        lotsCount
-        modelVersion
-        supportedModelVersions
-        mediumTypes
-        filterExtrema {
-            id
-            maxPriceSold
-            maxDateSold
-            minDateSold
-            minPriceSold
-            minEstimatedPrice
-        }
-        photo {
-            id
-            originalUrl
-            s3Key
-            s3PresignedUrl
-        }
+  artist(artistId: $artistId) {
+    id
+    name
+    nationality
+    bio
+    birth
+    death
+    longBio
+    qualifier
+    artworksCount
+    lotsCount
+    modelVersion
+    supportedModelVersions
+    mediumTypes
+    filterExtrema {
+      id
+      maxPriceSold
+      maxDateSold
+      minDateSold
+      minPriceSold
+      minEstimatedPrice
     }
+    photo {
+      id
+      originalUrl
+      s3Key
+      s3PresignedUrl
+    }
+  }
 }

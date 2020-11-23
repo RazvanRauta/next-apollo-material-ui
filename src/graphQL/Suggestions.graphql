@@ -1,0 +1,6 @@
+query Suggestions($query: String, $limit: Int, $offset: Int!, $sort: String) {
+  artists(query: $query, limit: $limit, offset: $offset, sort: $sort) {
+    id
+    name
+  }
+}

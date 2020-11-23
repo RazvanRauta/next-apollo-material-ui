@@ -17,7 +17,6 @@ interface ArtistsGridProps {
 
 const ArtistsGrid: React.FC<ArtistsGridProps> = ({ artists }) => {
   const classes = useStyles()
-  console.log({ artists })
   return (
     <Grid
       container

@@ -79,6 +79,7 @@ const ArtistComponent: React.FC = () => {
           alignItems="flex-start">
           <Box mr={2}>
             <img
+              className={classes.image}
               alt={artistData?.name || 'Unknown artist'}
               src={
                 artistData?.photo?.originalUrl ??
@@ -91,22 +92,26 @@ const ArtistComponent: React.FC = () => {
               {artistData?.name}
             </Typography>
             <Typography variant="subtitle1">{artistData?.bio}</Typography>
-            <Typography
-              className={
-                showMore
-                  ? clsx(classes.longBio, classes.longBioShowMore)
-                  : classes.longBio
-              }
-              variant="body2">
-              {artistData?.longBio}
-            </Typography>
-            <Box mb={2}>
-              <Button
-                color="secondary"
-                onClick={() => setShowMore((prev) => !prev)}>
-                {showMore ? 'Show Less' : 'Show More'}
-              </Button>
-            </Box>
+            {artistData?.longBio && (
+              <Typography
+                className={
+                  showMore
+                    ? clsx(classes.longBio, classes.longBioShowMore)
+                    : classes.longBio
+                }
+                variant="body2">
+                {artistData?.longBio}
+              </Typography>
+            )}
+            {artistData?.longBio && (
+              <Box mb={2}>
+                <Button
+                  color="secondary"
+                  onClick={() => setShowMore((prev) => !prev)}>
+                  {showMore ? 'Show Less' : 'Show More'}
+                </Button>
+              </Box>
+            )}
             <Typography variant="body1">{`${artistData?.lotsCount} lots, ${artistData?.artworksCount} artworks`}</Typography>
           </Box>
         </Box>

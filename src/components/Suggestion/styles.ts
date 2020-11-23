@@ -1,28 +1,30 @@
 /**
  * @ @author: Razvan Rauta
  * @ Date: Nov 23 2020
- * @ Time: 16:00
+ * @ Time: 15:12
  */
 
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  longBio: {
+  link: {
+    color: 'inherit',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+    },
+  },
+  text: {
     margin: `${theme.spacing(2)}px 0`,
     display: '-webkit-box',
-    '-webkit-line-clamp': 4,
     '-webkit-box-orient': 'vertical',
     textOverflow: 'ellipsis',
     overflow: 'hidden',
   },
-  longBioShowMore: {
-    '-webkit-line-clamp': 'unset',
-  },
-  appBar: {
-    boxShadow: 'none',
-  },
-  image: {
-    maxHeight: 300,
+  container: {
+    '&:hover': {
+      background: '#f2f3f4',
+    },
   },
 }))
 

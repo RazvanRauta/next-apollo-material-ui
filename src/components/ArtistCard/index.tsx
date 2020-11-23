@@ -20,7 +20,7 @@ const ArtistCard: React.FC<ArtistCardProps> = ({ artist }) => {
   const classes = useStyles()
 
   return (
-    <NextLink href={`artist/${artist?.id}`} passHref>
+    <NextLink href={`/artist/${artist?.id}`} passHref>
       <Link className={classes.cardLink}>
         <Paper className={classes.paper}>
           <Grid container justify="center" style={{ gap: 10 }}>

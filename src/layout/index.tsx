@@ -12,18 +12,18 @@ import Header from './components/Header'
 import Main from './components/Main'
 
 const Layout: React.FC = ({ children }) => {
-    return (
-        <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            minHeight="100vh"
-            width="100%">
-            <Header />
-            <Main>{children}</Main>
-            <Footer />
-        </Box>
-    )
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      minHeight="100vh"
+      width="100%">
+      <Header />
+      <Main>{children}</Main>
+      <Footer />
+    </Box>
+  )
 }
 
 export default Layout
