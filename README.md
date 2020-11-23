@@ -1,6 +1,20 @@
 # Next Apollo Material-ui
 
-## Step 1. Set server url
+
+## Step 1. Setup server
+
+Clone [case-study-apollo-server
+](https://github.com/DmitryMironchenko/case-study-apollo-server)
+
+Install dependencies:
+
+`yarn`
+
+Then run the server:
+
+`node server.js`
+
+## Step 2. Set server url
 
 Copy [.env.local.example](./.env.local.example) to [.env.local](./.env.local)
 
@@ -8,14 +22,14 @@ The content should be something like:
 
 `NEXT_PUBLIC_API_URL=http://localhost:4000/`
 
-## Step 2. Install
+## Step 3. Install
 
-yarn install
+`yarn install`
 
-## Step 3. Run development
+## Step 4. Run development
 
-yarn dev
+`yarn dev`
 
-## Step 4. Build for production
+## Step 5. Build for production
 
-yarn build
+`yarn build`
