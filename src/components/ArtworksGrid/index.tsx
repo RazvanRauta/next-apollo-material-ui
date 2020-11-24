@@ -2,7 +2,7 @@
 import { useArtworksQuery } from '__generated__/src/graphQL/Artworks.graphql'
 import { NetworkStatus } from '@apollo/client'
 import { Box, CircularProgress, Grid, Typography } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import useStyles from './styles'
 

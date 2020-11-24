@@ -8,7 +8,7 @@ import {
   CompoundAnnualDocument,
   CompoundAnnualQuery,
 } from '__generated__/src/graphQL/CompoundAnnualReturns.graphql'
-import { Box, CircularProgress } from '@material-ui/core'
+import { Box, CircularProgress, Typography } from '@material-ui/core'
 import { request } from 'graphql-request'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -25,7 +25,10 @@ interface AnalyticsProps {
 
 const Analytics: React.FC<AnalyticsProps> = ({ artistId }) => {
   const [loading, setLoading] = useState(false)
-  const [chartOptions, setChartOptions] = useState({})
+  const [chartOptions, setChartOptions] = useState<Record<
+    string,
+    unknown
+  > | null>(null)
 
   const getChartData = async () => {
     setLoading(true)
@@ -35,7 +38,7 @@ const Analytics: React.FC<AnalyticsProps> = ({ artistId }) => {
       const data = await request<CompoundAnnualQuery>(
         `${process.env.NEXT_PUBLIC_API_URL}/graphql`,
         CompoundAnnualDocument,
-        { artistId: 3305 }, //hardcoded because some bug on backend
+        { artistId }, //hardcoded because some bug on backend
       )
       const { compoundAnnualReturns } = data
       if (compoundAnnualReturns) {
@@ -81,6 +84,8 @@ const Analytics: React.FC<AnalyticsProps> = ({ artistId }) => {
               '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
           },
         }))
+      } else {
+        setChartOptions(null)
       }
     } catch (error) {
       console.log({ error })
@@ -94,9 +99,9 @@ const Analytics: React.FC<AnalyticsProps> = ({ artistId }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return !loading ? (
+  return !loading && chartOptions ? (
     <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-  ) : (
+  ) : loading ? (
     <Box
       display="flex"
       flexDirection="row"
@@ -104,6 +109,15 @@ const Analytics: React.FC<AnalyticsProps> = ({ artistId }) => {
       alignItems="center"
       mt={4}>
       <CircularProgress color="secondary" />
+    </Box>
+  ) : (
+    <Box
+      display="flex"
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
+      mt={4}>
+      <Typography>No Data Available</Typography>
     </Box>
   )
 }
